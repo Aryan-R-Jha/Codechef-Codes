@@ -1,4 +1,5 @@
 #include<bits/stdc++.h>	//I_<3_BITS_Pilani__&&__DC++:)
+//After seeing the editorial solution
 using namespace std;
 typedef long long int ll;
 typedef double lf;
@@ -45,5 +46,16 @@ typedef map<string,string> mstrstr;
 ll gcd(ll a,ll b){if(a%b==0){return b;}else{return gcd(b,a%b);}}
 
 int main(){IOS
+	ll t;cin>>t;
+	itr(T,0,t){
+		ll n,k,s,a,b;cin>>n>>k>>s;
+		a=k*s;
+		b=n*(s-(s/7));
+		if(a>b){cout<<"-1\n";}
+		else if(s>=7&&(n-k)*6<k){cout<<"-1\n";}
+		else{
+			cout<<ceil((lf)a/n)<<"\n";
+		}
+	}
 	return 0;
 }	

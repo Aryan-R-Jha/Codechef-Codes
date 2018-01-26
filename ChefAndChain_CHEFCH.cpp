@@ -2,7 +2,6 @@
 using namespace std;
 typedef long long int ll;
 typedef double lf;
-typedef long double llf;
 typedef vector<ll> vll;
 typedef vector<int> vi;
 typedef vector<lf> vlf;
@@ -27,7 +26,6 @@ typedef map<string,string> mstrstr;
 #define itrR(i,hi,lo) for(int i=hi;i>=lo;i--)
 #define itr0 for(int i=0;i<n;i++)
 #define itr1 for(int i=1;i<=n;i++)
-
 #define IOS ios_base::sync_with_stdio(0);cin.tie(NULL);cout.tie(NULL);
 #define pb push_back
 #define lb lower_bound
@@ -42,8 +40,48 @@ typedef map<string,string> mstrstr;
 #define fi first
 #define se second
 
+int minusPlus(string s){
+	int count=0;
+	itr(i,0,s.length()){
+		if(i%2==0){
+			if(s[i]!='-'){
+				count++;
+			}
+		}
+		else if(i%2==1){
+			if(s[i]!='+'){
+				count++;
+			}
+		}
+	}
+	return count;
+}
+
+int plusMinus(string s){
+	int count=0;
+	itr(i,0,s.length()){
+		if(i%2==0){
+			if(s[i]!='+'){
+				count++;
+			}
+		}
+		else if(i%2==1){
+			if(s[i]!='-'){
+				count++;
+			}
+		}
+	}
+	return count;
+}
+
 ll gcd(ll a,ll b){if(a%b==0){return b;}else{return gcd(b,a%b);}}
 
-int main(){IOS
+int main(){
+	IOS
+	ll t;cin>>t;
+	itr(T,0,t){
+		string s;cin>>s;
+		cout<<min(minusPlus(s),plusMinus(s))<<"\n";
+	}
 	return 0;
 }	

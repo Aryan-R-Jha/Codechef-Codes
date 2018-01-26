@@ -2,7 +2,6 @@
 using namespace std;
 typedef long long int ll;
 typedef double lf;
-typedef long double llf;
 typedef vector<ll> vll;
 typedef vector<int> vi;
 typedef vector<lf> vlf;
@@ -44,6 +43,48 @@ typedef map<string,string> mstrstr;
 
 ll gcd(ll a,ll b){if(a%b==0){return b;}else{return gcd(b,a%b);}}
 
+int nxt(int a){
+	if(a<6){return a+1;}
+	else if(a==6){return 0;}
+}
+
 int main(){IOS
+	ll t;cin>>t;
+	itr(T,0,t){
+		int w;string s;cin>>w>>s;
+		mstrll M;
+		M.insert(mp("mon",0));
+		M.insert(mp("tues",1));
+		M.insert(mp("wed",2));
+		M.insert(mp("thurs",3));
+		M.insert(mp("fri",4));
+		M.insert(mp("sat",5));
+		M.insert(mp("sun",6));
+
+		if(w==28){itr(i,0,7){cout<<"4 ";}}
+		else if(w==29){
+			itr(i,0,7){
+				if(i==M[s]){cout<<"5 ";}
+				else{cout<<"4 ";}
+			}
+		}
+		else if(w==30){
+			itr(i,0,7){
+				int j=nxt(M[s]);
+				if(i==M[s]||i==j){cout<<"5 ";}
+				else{cout<<"4 ";}
+			}
+		}
+		else if(w==31){
+			itr(i,0,7){
+				int j=nxt(M[s]);
+				int k=nxt(j);
+				if(i==M[s]||i==j||i==k){cout<<"5 ";}
+				else{cout<<"4 ";}
+			}
+		}
+		cout<<"\n";
+	}
+
 	return 0;
 }	

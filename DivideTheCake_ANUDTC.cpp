@@ -2,7 +2,6 @@
 using namespace std;
 typedef long long int ll;
 typedef double lf;
-typedef long double llf;
 typedef vector<ll> vll;
 typedef vector<int> vi;
 typedef vector<lf> vlf;
@@ -45,5 +44,31 @@ typedef map<string,string> mstrstr;
 ll gcd(ll a,ll b){if(a%b==0){return b;}else{return gcd(b,a%b);}}
 
 int main(){IOS
+	ll t;cin>>t;
+	itr(T,0,t){
+		ll n;cin>>n;
+		if(360/n==(double)360/n){
+			cout<<"y ";
+		}
+		else{
+			cout<<"n ";
+		}
+
+		if(n<=360){
+			cout<<"y ";
+		}
+		else{
+			cout<<"n ";
+		}
+
+		if(n<=26){
+			cout<<"y ";
+		}
+		else{
+			cout<<"n ";
+		}
+	
+		cout<<"\n";
+	}
 	return 0;
 }	

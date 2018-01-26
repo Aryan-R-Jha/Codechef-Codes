@@ -2,7 +2,6 @@
 using namespace std;
 typedef long long int ll;
 typedef double lf;
-typedef long double llf;
 typedef vector<ll> vll;
 typedef vector<int> vi;
 typedef vector<lf> vlf;
@@ -45,5 +44,31 @@ typedef map<string,string> mstrstr;
 ll gcd(ll a,ll b){if(a%b==0){return b;}else{return gcd(b,a%b);}}
 
 int main(){IOS
-	return 0;
+//*******************************************************************************************************************
+//							PRELIMINARY CODE
+	ll isPrime[2100]={0};//idk the min. PRIME no. after 2000, so I just hoped that it must be contained within 2100
+	vll seiv;
+	itr(i,2,2100){
+		if(isPrime[i]==0){
+			for(ll j=2;i*j<=2099;j++){
+				isPrime[i*j]=1;
+			}
+		}
+	}
+	itr(i,2,2100){
+		if(isPrime[i]==0){seiv.pb(i);}
+	}
+//**********************************************************************************************************************
+//							CODE BEGINS
+	ll t;cin>>t;
+	itr(T,0,t){
+		ll x,y;cin>>x>>y;
+		ll sum=x+y;
+		ll i=0;
+		while(seiv[i]<=sum){
+			i++;
+		}
+		cout<<seiv[i]-sum<<"\n";
+	}
+	return 0;	
 }	

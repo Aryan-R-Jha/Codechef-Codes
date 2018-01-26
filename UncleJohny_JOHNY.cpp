@@ -2,7 +2,6 @@
 using namespace std;
 typedef long long int ll;
 typedef double lf;
-typedef long double llf;
 typedef vector<ll> vll;
 typedef vector<int> vi;
 typedef vector<lf> vlf;
@@ -45,5 +44,21 @@ typedef map<string,string> mstrstr;
 ll gcd(ll a,ll b){if(a%b==0){return b;}else{return gcd(b,a%b);}}
 
 int main(){IOS
+	ll t;cin>>t;
+	itr(T,0,t){
+		ll n,k,x,y,ans=0;cin>>n;
+		vll A;
+		itr0{cin>>x;A.pb(x);}
+		cin>>k;
+		y=A[k-1];
+		sort(A.be,A.en);
+		itr0{
+			if(A[i]==y){
+				ans=i+1;
+				i=n;
+			}
+		}
+		cout<<ans<<"\n";
+	}
 	return 0;
 }	
